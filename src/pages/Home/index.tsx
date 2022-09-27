@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import './index.css'
-import Header from "../../companents/Header";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Header from "../../companents/Header";
+import { routes } from "../../constants";
+import "./index.css"
 
 export type Photo = {
     albumId: number
@@ -11,7 +12,7 @@ export type Photo = {
     url: string
 }
 
-const Home = () => {
+const Home: React.FC = () => {
     const [photos, setPhotos] = useState<Array<Photo>>([])
 
     useEffect( () => {
@@ -24,17 +25,16 @@ const Home = () => {
     }, [])
 
     return (
-        <div>
+        <>
             <Header />
             <div className='photos-container'>
                 {photos.map(({thumbnailUrl, id}) => (
-                    <Link to={`about-photo/${id}`} className='photo' key={id}>
+                    <Link to={`${routes.photo}/${id}`} className='photo' key={id}>
                         <img  alt='photo' src={thumbnailUrl}/>
                     </Link>
                 ))}
             </div>
-        </div>
-
+        </>
     );
 };
 

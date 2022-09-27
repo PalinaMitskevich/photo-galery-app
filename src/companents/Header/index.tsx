@@ -1,25 +1,40 @@
 import React from 'react';
 import { IoLogoInstagram, IoLogoPinterest, IoLogoFacebook } from "react-icons/io";
+import { Link } from "react-router-dom";
+import { routes } from "../../constants";
 import './index.css'
-import {Link} from "react-router-dom";
 
-const Header = () => {
+type SocialLink = {
+    href: string
+    component: React.ReactNode
+}
+
+const socilLinks: Array<SocialLink> = [
+    {
+        href: 'https://www.instagram.com/',
+        component: <IoLogoInstagram className='icon'/>
+    },
+    {
+        href: 'https://www.pinterest.com/',
+        component: <IoLogoPinterest className='icon'/>
+    },
+    {
+        href: 'https://www.facebook.com/',
+        component: <IoLogoFacebook className='icon'/>
+    },
+]
+
+const Header: React.FC = () => {
 
     return (
         <div className='header'>
             <div>
-                <Link to='/' className='logo'>PhotoGallery</Link>
+                <Link to={routes.home} className='logo'>PhotoGallery</Link>
             </div>
             <div className='icon-container'>
-                <a href='https://www.instagram.com/'>
-                    <IoLogoInstagram className='icon'/>
-                </a>
-                <a href='https://www.pinterest.com/'>
-                    <IoLogoPinterest className='icon'/>
-                </a>
-                <a href='https://www.facebook.com/'>
-                    <IoLogoFacebook className='icon'/>
-                </a>
+                {socilLinks.map(({ href, component }, index) => (
+                    <a href={href} key={index}>{component}</a>
+                ))}
             </div>
         </div>
     );

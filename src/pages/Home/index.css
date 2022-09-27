@@ -1,8 +1,8 @@
 .photos-container {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     max-width: 720px;
-    justify-content: space-between;
     margin: auto;
 }
 

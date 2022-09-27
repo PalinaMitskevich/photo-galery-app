@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe:ital@1&family=Montserrat:wght@400;700&display=swap');
 
 .header {
-    height: 50px;
-    background-color: #efe1b0;
-    padding: 5px 100px;
+    position: relative;
     display: flex;
     align-items: center;
-    position: relative;
+    height: 50px;
+    padding: 5px 100px;
+    background-color: #efe1b0;
 }
 
 .logo {
@@ -15,9 +15,9 @@
 }
 
 .icon-container {
-    margin-right: 0;
     position: absolute;
     right: 100px;
+    margin-right: 0;
 }
 
 .icon {

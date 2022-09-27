@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
     BrowserRouter,
     Routes,
@@ -6,21 +6,24 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import AboutPhoto from "./pages/AboutPhoto";
-import './App.css';
+import NotFound from "./pages/NotFound";
+import { routes } from "./constants";
+import "./App.css";
 
 function App() {
 
   return (
-    <div className="App">
+    <>
         <BrowserRouter>
             <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='about-photo' element={<AboutPhoto />}>
-                    <Route path=':id' element={<AboutPhoto />} />
+                <Route path={routes.home} element={<Home />} />
+                <Route path={routes.photo} element={<AboutPhoto />}>
+                    <Route path={routes.photoId} element={<AboutPhoto />} />
                 </Route>
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
-    </div>
+    </>
   );
 }
 

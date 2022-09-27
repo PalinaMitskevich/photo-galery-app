@@ -1,25 +1,29 @@
-import React, {useEffect, useState} from 'react';
-import Header from "../../companents/Header";
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from "react-router-dom";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { Photo } from "../Home";
+import { IoIosArrowBack, IoIosArrowForward, IoIosArrowRoundBack } from "react-icons/io";
+import Header from "../../companents/Header";
+import { Photo } from "../Home"
+import { routes } from "../../constants";
 import './index.css'
 
-const AboutPhoto = () => {
+const AboutPhoto: React.FC = () => {
     const { id } = useParams()
     const [photo, setPhoto] = useState<Photo>({} as Photo)
 
     useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/photos/${id}`)
-            .then((response) => response.json())
-            .then((json) => setPhoto(json))
+        const fetchPhotos = async () => {
+            const response = await fetch(`https://jsonplaceholder.typicode.com/photos/${id}`)
+            const photos = await response.json()
+            setPhoto(photos as Photo)
+        }
+        fetchPhotos()
     }, [id])
 
     return (
-        <div>
+        <>
             <Header />
-            <Link to='/'>
-                <p className='back'>Back</p>
+            <Link to={routes.home}>
+                <IoIosArrowRoundBack className='back'/>
             </Link>
             <div className='information-container'>
                 <Link to={`${ Number(id) === 1 ? '12' : Number(id) - 1}`}>
@@ -33,7 +37,7 @@ const AboutPhoto = () => {
                     <IoIosArrowForward className='icon-back-forward'/>
                 </Link>
             </div>
-        </div>
+        </>
     );
 };
 
