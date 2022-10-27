@@ -27,14 +27,14 @@ const AboutPhoto: React.FC = () => {
             </Link>
             <div className='information-container'>
                 <Link to={`${ Number(id) === 1 ? '12' : Number(id) - 1}`}>
-                    <IoIosArrowBack className='icon-back-forward' />
+                    <IoIosArrowBack className='icon-back' />
                 </Link>
                 <div>
                     <img alt='photo' src={photo.url} />
                     <p className='photo-description'>Description: {photo.title}</p>
                 </div>
                 <Link to={`${ Number(id) === 12 ? '1' : Number(id) + 1}`}>
-                    <IoIosArrowForward className='icon-back-forward'/>
+                    <IoIosArrowForward className='icon-back'/>
                 </Link>
             </div>
         </>
