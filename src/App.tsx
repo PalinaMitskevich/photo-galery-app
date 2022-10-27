@@ -20,7 +20,7 @@ function App() {
                 <Route path={routes.photo} element={<AboutPhoto />}>
                     <Route path={routes.photoId} element={<AboutPhoto />} />
                 </Route>
-                {/*<Route path="*" element={<NotFound />} />*/}
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
     </>
