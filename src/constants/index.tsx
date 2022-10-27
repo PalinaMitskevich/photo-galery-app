@@ -1,5 +1,5 @@
 export const routes: Record<string, string> = {
-    home: '/photo-galery-app',
+    home: '/',
     photo: 'photo',
     photoId: ':id'
 }
