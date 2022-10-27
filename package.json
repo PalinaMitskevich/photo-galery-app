@@ -1,6 +1,6 @@
 {
   "homepage": "https://PalinaMitskevich.github.io/photo-galery-app",
-  "name": "photo-galery",
+  "name": "photo-galery-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
